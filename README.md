@@ -4,6 +4,8 @@ Este proyecto implementa un sistema completo de **monitorización de métricas d
 
 Toda la información recolectada se procesa y se almacena de forma persistente en una base de datos **MySQL**, permitiendo el análisis histórico del estado del sistema. El diseño utiliza **programación multihilo** para optimizar la recolección de métricas con diferentes frecuencias de actualización.
 
+---
+
 ## 🛠️ Tecnologías Utilizadas
 
 | Tecnología | Rol en el Proyecto |
@@ -14,6 +16,8 @@ Toda la información recolectada se procesa y se almacena de forma persistente e
 | **`subprocess`** | Ejecución de comandos nativos de Linux (`ps aux`, `vmstat`, `df -h`, `ping`, `cat /proc/meminfo`). |
 | **`threading`** | Gestión de concurrencia para la ejecución de tareas con diferentes periodicidades. |
 | **`mysql.connector`** | Módulo para la interacción y persistencia de datos en MySQL. |
+
+---
 
 ## 📈 Métricas Recogidas y Almacenadas
 
@@ -37,6 +41,8 @@ El sistema está diseñado para capturar y registrar más de **12 tipos diferent
 * **Operaciones de E/S (I/O)**: Procesos esperando I/O, bloques de lectura/escritura, porcentaje de CPU esperando I/O (`vmstat`).
 * **Espacio en Disco Disponible**: Espacio total disponible calculado a partir de la salida de `df -h`.
 
+---
+
 ## ⚙️ Estructura y Concurrencia
 
 El módulo principal (`main.py`) inicia **tres hilos** de ejecución para gestionar la recolección de forma eficiente:
@@ -44,6 +50,8 @@ El módulo principal (`main.py`) inicia **tres hilos** de ejecución para gestio
 1.  **`mainThdr`**: Ejecuta las métricas de alta frecuencia (Procesos, CPU, Memoria, I/O, Red Básica). **Frecuencia: Cada 5 segundos.**
 2.  **`otherMThdr`**: Ejecuta las métricas más lentas o que requieren un periodo de medición (Latencia de Red, Velocidad de Transferencia). **Frecuencia: Cada 10 segundos.**
 3.  **`delThdr`**: Mantenimiento de la base de datos (borrado de datos antiguos). **Frecuencia: Cada 120 segundos (2 minutos) para borrado de datos de hace más de 7 horas.**
+
+---
 
 ## ▶️ Instrucciones de Uso (Configuración)
 
@@ -69,6 +77,8 @@ Ejecutar el script principal para iniciar el servicio de monitorización:
 python main.py
 ```
 
+---
+
 ## 🧠 Aprendizajes Clave
 Este proyecto demuestra experiencia en:
 
@@ -81,3 +91,10 @@ Este proyecto demuestra experiencia en:
 - Integración de Servicios: Conexión y manipulación de datos entre Python y MySQL.
 
 - Manejo de Librerías de Bajo Nivel: Uso de psutil para obtener estadísticas de sistema de forma programática.
+
+---
+
+## 👥 Autores
+- Marcos Alonso Ulloa (@Marcau04)
+- Marcos Cámara Vicente
+- Iván Álvaro Luis
