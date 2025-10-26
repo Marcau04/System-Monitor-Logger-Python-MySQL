@@ -61,7 +61,7 @@ El módulo principal (`main.py`) inicia **tres hilos** de ejecución para gestio
 2.  Crear la base de datos y las tablas ejecutando el script SQL:
     ```bash
     mysql -u usuario -p < script.sql
-    *(Nota: Asegúrate de que los credenciales de `sqlConnection.py` coincidan con tu configuración: `usuario`, `foe0004`, `practicas`)*.
+    *(Nota: Asegúrate de que los credenciales de `sqlConnection.py` coincidan con tu configuración.
     ```
 ### 2. Dependencias de Python
 
@@ -98,3 +98,4 @@ Este proyecto demuestra experiencia en:
 - Marcos Alonso Ulloa (@Marcau04)
 - Marcos Cámara Vicente
 - Iván Álvaro Luis
+- Eric Soto San José
